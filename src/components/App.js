@@ -1,11 +1,12 @@
 import React from 'react';
+
 import '../styles/App.css';
 
-function App() {
+function App({appName}) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>React Weather App</h1>
+        <h1>{appName}</h1>
       </header>
     </div>
   );
