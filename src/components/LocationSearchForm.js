@@ -8,11 +8,6 @@ const LocationSearchForm = ({fetchWeatherData}) => {
   const [address, setAddress] = useState('');
   const [isValidAddress, setIsValidAddress] = useState(false);
 
-  const searchOptions = {
-    types: ['(regions)'],
-    componentRestrictions: {country: "us"}
-  }
-
   const handleChange = input => {
     setAddress(input);
     setIsValidAddress(false);
@@ -36,7 +31,6 @@ const LocationSearchForm = ({fetchWeatherData}) => {
         value={address}
         onChange={handleChange}
         onSelect={handleSelect}
-        searchOptions={searchOptions}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
@@ -51,15 +45,10 @@ const LocationSearchForm = ({fetchWeatherData}) => {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
                   : 'suggestion-item';
-                // inline style for demonstration purpose
-                const style = suggestion.active
-                  ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                  : { backgroundColor: '#ffffff', cursor: 'pointer' };
                 return (
                   <div
                     {...getSuggestionItemProps(suggestion, {
-                      className,
-                      style,
+                      className
                     })}
                   >
                     <span>{suggestion.description}</span>

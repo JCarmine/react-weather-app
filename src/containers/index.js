@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import WeatherApp from '../components';
-import { getAppName } from '../selectors';
+import { getWeatherData } from '../selectors';
 import { fetchWeatherData } from '../actions';
 
 const mapStateToProps = state => ({
-  appName: getAppName(state)
+  weatherData: getWeatherData(state)
 });
 
 const mapDispatchToProps = dispatch => ({
