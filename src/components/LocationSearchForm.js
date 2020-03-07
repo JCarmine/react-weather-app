@@ -1,56 +1,46 @@
-import React from 'react';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+import React, { useState } from 'react';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
-class LocationSearchInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      address: '',
-      addressValid: false
-    };
-  }
+const LocationSearchForm = () => {
+  const [address, setAddress] = useState('');
+  const [isValidAddress, setIsValidAddress] = useState(false);
 
-  handleChange = address => {
-    console.log('fart')
-    this.setState({
-      address,
-      addressValid: false
-    });
-  }
-
-  handleSelect = address => {
-    this.setState({
-      address,
-      addressValid: true
-    });
-  }
-
-  searchOptions = {
+  const searchOptions = {
     types: ['(cities)'],
     componentRestrictions: {country: "us"}
   }
 
-  render() {
-    return (
+  const handleChange = input => {
+    setAddress(input);
+    setIsValidAddress(false);
+  }
+
+  const handleSelect = input => {
+    setAddress(input);
+    setIsValidAddress(true);
+  }
+
+  const handleSubmit = input => {
+    alert('Submit');
+  }
+
+  return (
+    <div className="location-search-form">
       <PlacesAutocomplete
-        value={this.state.address}
-        onChange={this.handleChange}
-        onSelect={this.handleSelect}
-        searchOptions={this.searchOptions}
+        value={address}
+        onChange={handleChange}
+        onSelect={handleSelect}
+        searchOptions={searchOptions}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
             <input
               {...getInputProps({
                 placeholder: 'Search for Town/City',
-                className: `location-search-input ${this.state.addressValid ? "valid" : ""}`,
+                className: `location-search-input ${isValidAddress ? "valid" : ""}`,
               })}
             />
             <div className="autocomplete-dropdown-container">
-              {loading && <div>Loading...</div>}
               {suggestions.map(suggestion => {
                 const className = suggestion.active
                   ? 'suggestion-item--active'
@@ -74,8 +64,14 @@ class LocationSearchInput extends React.Component {
           </div>
         )}
       </PlacesAutocomplete>
-    );
-  }
+      <button
+        type="button"
+        disabled={!isValidAddress}
+        onClick={isValidAddress && handleSubmit}>
+          Get Weather
+      </button>
+    </div>
+  );
 }
 
-export default LocationSearchInput;
+export default LocationSearchForm;

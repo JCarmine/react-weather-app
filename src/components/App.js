@@ -1,14 +1,14 @@
 import React from 'react';
-import LocationSearchInput from './LocationSearchInput';
+import LocationSearchForm from './LocationSearchForm';
 
 import '../styles/App.css';
 
-function App({appName}) {
+const App = ({appName}) => {
   return (
     <div className="App">
       <header className="App-header">
         <h1>{appName}</h1>
-        <LocationSearchInput/>
+        <LocationSearchForm/>
       </header>
     </div>
   );
