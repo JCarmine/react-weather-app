@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
 
-const LocationSearchForm = ({fetchWeatherData}) => {
+const LocationSearchForm = ({ fetchWeatherData }) => {
   const [address, setAddress] = useState('');
   const [isValidAddress, setIsValidAddress] = useState(false);
 
@@ -68,5 +69,9 @@ const LocationSearchForm = ({fetchWeatherData}) => {
     </div>
   );
 }
+
+LocationSearchForm.propTypes = {
+  fetchWeatherData: PropTypes.func.isRequired
+};
 
 export default LocationSearchForm;

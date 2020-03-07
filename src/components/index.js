@@ -1,20 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LocationSearchForm from './LocationSearchForm';
+import WeatherDisplayPanel from './WeatherDisplayPanel';
 
 import '../styles/App.css';
 
-const WeatherApp = ({weatherData, fetchWeatherData}) => {
+const WeatherApp = ({ weatherData, fetchWeatherData }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>React Weather App</h1>
-        <LocationSearchForm
-          fetchWeatherData={fetchWeatherData}
+    <div className="weather-app">
+      <h1>React Weather App</h1>
+      <LocationSearchForm
+        fetchWeatherData={fetchWeatherData}
+      />
+      {weatherData &&
+        <WeatherDisplayPanel
+          weatherData={weatherData}
         />
-        <p>{weatherData && weatherData.name}</p>
-      </header>
+      }
     </div>
   );
 }
+
+WeatherApp.propTypes = {
+  fetchWeatherData: PropTypes.func.isRequired,
+  weatherData: PropTypes.object.isRequired
+};
 
 export default WeatherApp;
