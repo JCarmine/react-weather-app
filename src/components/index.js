@@ -3,7 +3,7 @@ import LocationSearchForm from './LocationSearchForm';
 
 import '../styles/App.css';
 
-const App = ({appName}) => {
+const WeatherApp = ({appName}) => {
   return (
     <div className="App">
       <header className="App-header">
@@ -14,4 +14,4 @@ const App = ({appName}) => {
   );
 }
 
-export default App;
+export default WeatherApp;
