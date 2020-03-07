@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import PlacesAutocomplete from 'react-places-autocomplete';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
 const LocationSearchForm = ({fetchWeatherData}) => {
   const [address, setAddress] = useState('');
   const [isValidAddress, setIsValidAddress] = useState(false);
 
   const searchOptions = {
-    types: ['(cities)'],
+    types: ['(regions)'],
     componentRestrictions: {country: "us"}
   }
 
@@ -21,8 +24,10 @@ const LocationSearchForm = ({fetchWeatherData}) => {
   }
 
   const handleSubmit = () => {
-    const cleanedAddress = address.replace(/\s*,\s*/g, ",");
-    fetchWeatherData(cleanedAddress);
+    geocodeByAddress(address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => fetchWeatherData(latLng))
+      .catch(error => console.error('Error', error));
   }
 
   return (
