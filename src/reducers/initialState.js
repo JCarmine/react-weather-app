@@ -7,8 +7,7 @@ const initialState = fromJS({
     apiKey: '9f37eae0ba52698e13ef6b9efcf42e37',
     loading: false,
     error: false,
-    data: {},
-    currentZip: null
+    data: null
   }
 });
 

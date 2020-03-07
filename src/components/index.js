@@ -3,12 +3,14 @@ import LocationSearchForm from './LocationSearchForm';
 
 import '../styles/App.css';
 
-const WeatherApp = ({appName}) => {
+const WeatherApp = ({appName, fetchWeatherData}) => {
   return (
     <div className="App">
       <header className="App-header">
         <h1>{appName}</h1>
-        <LocationSearchForm/>
+        <LocationSearchForm
+          fetchWeatherData={fetchWeatherData}
+        />
       </header>
     </div>
   );

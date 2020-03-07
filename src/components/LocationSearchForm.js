@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PlacesAutocomplete from 'react-places-autocomplete';
 
-const LocationSearchForm = () => {
+const LocationSearchForm = ({fetchWeatherData}) => {
   const [address, setAddress] = useState('');
   const [isValidAddress, setIsValidAddress] = useState(false);
 
@@ -20,8 +20,9 @@ const LocationSearchForm = () => {
     setIsValidAddress(true);
   }
 
-  const handleSubmit = input => {
-    alert('Submit');
+  const handleSubmit = () => {
+    const cleanedAddress = address.replace(/\s*,\s*/g, ",");
+    fetchWeatherData(cleanedAddress);
   }
 
   return (
@@ -67,7 +68,7 @@ const LocationSearchForm = () => {
       <button
         type="button"
         disabled={!isValidAddress}
-        onClick={isValidAddress && handleSubmit}>
+        onClick={handleSubmit}>
           Get Weather
       </button>
     </div>
