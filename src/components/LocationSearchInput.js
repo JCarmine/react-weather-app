@@ -45,7 +45,7 @@ class LocationSearchInput extends React.Component {
           <div>
             <input
               {...getInputProps({
-                placeholder: 'Search Places ...',
+                placeholder: 'Search for Town/City',
                 className: `location-search-input ${this.state.addressValid ? "valid" : ""}`,
               })}
             />
