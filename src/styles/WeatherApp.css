@@ -3,7 +3,8 @@
   width: 100%;
   max-width: 540px;
   min-width: 320px;
-  height: 600px;
+  height: 100vh;
+  max-height: 768px;
   background-color: #fafdff;
   border: 1px solid #bcbec0;
 }
