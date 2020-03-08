@@ -47,7 +47,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
               <div className="autocomplete-dropdown-container">
                 {suggestions.map(suggestion => {
                   const className = suggestion.active
-                    ? 'suggestion-item--active'
+                    ? 'suggestion-item-active'
                     : 'suggestion-item';
                   return (
                     <div

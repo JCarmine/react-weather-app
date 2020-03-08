@@ -1,3 +1,16 @@
+.location-search-input,
+.location-search-form-button,
+.suggestion-item,
+.suggestion-item-active {
+  padding: 2px 7px !important;
+}
+
+.location-search-input,
+.location-search-form-button {
+  border: none;
+  line-height: 18px;
+}
+
 .location-search-form {
   display: flex;
   padding: 5px 10px;
@@ -6,13 +19,7 @@
 
 .location-search-form-input {
   flex-grow: 1;
-}
-
-.location-search-input,
-.location-search-form-button {
-  padding: 2px 7px;
-  border: none;
-  line-height: 18px;
+  position: relative;
 }
 
 .location-search-input {
@@ -21,7 +28,28 @@
 }
 
 .autocomplete-dropdown-container {
-  display: inline;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #d1d3d4;
+  border-top: none;
+}
+
+.suggestion-item,
+.suggestion-item-active {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggestion-item {
+  cursor: pointer;
+}
+
+.suggestion-item-active {
+  cursor: pointer;
+  background-color: #f0f3f5;
 }
 
 .location-search-form-button {
