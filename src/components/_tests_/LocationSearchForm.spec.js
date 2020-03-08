@@ -1,19 +1,13 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { createMockWeatherData } from '../../mocks/mockData';
 
-import LocationSearchForm from '..';
-
-interface Props {
-  children: Function;
-}
+import LocationSearchForm from '../LocationSearchForm';
+import PlacesAutocomplete from 'react-places-autocomplete';
 
 describe('<LocationSearchForm />', () => {
   const defaultProps = {
-    isLoading: false,
-    hasError: false,
-    fetchWeatherData: jest.fn(),
-    weatherData: createMockWeatherData()
+    fetchWeatherData: jest.fn()
   };
 
   const generateProps = overrides => ({
@@ -22,13 +16,13 @@ describe('<LocationSearchForm />', () => {
   });
 
   const props = generateProps({});
-  const wrapper = mount(<LocationSearchForm {...props} />);
+  const wrapper = shallow(<LocationSearchForm {...props} />);
 
   it('renders the search input', () => {
-    expect(wrapper.find('PlacesAutocomplete')).toBeTruthy();
+    expect(wrapper.exists('PlacesAutocomplete')).toBeTruthy();
   });
 
   it('renders the search icon', () => {
-    expect(wrapper.find('FaSearch')).toBeTruthy();
+    expect(wrapper.exists('FaSearch')).toBeTruthy();
   });
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { createMockWeatherData } from '../../mocks/mockData';
 
-import WeatherApp from '..';
+import WeatherApp from '../index';
 
 describe('<WeatherApp />', () => {
   const defaultProps = {
