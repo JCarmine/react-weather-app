@@ -16,10 +16,12 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
     setIsValidAddress(false);
   };
 
-  const handleSelect = input => {
-    setAddress(input);
-    setIsValidAddress(true);
-    handleSubmit(input);
+  const handleSelect = (input, e) => {
+    if (e) {
+      setAddress(input);
+      setIsValidAddress(true);
+      handleSubmit(input);
+    }
   };
 
   const handleSubmit = (input) => {
@@ -46,22 +48,24 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
                   className: `location-search-input ${isValidAddress ? "valid" : ""}`,
                 })}
               />
-              <div className="autocomplete-dropdown-container">
-                {suggestions.map(suggestion => {
-                  const className = suggestion.active
-                    ? 'suggestion-item-active'
-                    : 'suggestion-item';
-                  return (
-                    <div
-                      {...getSuggestionItemProps(suggestion, {
-                        className
-                      })}
-                    >
-                      <span>{suggestion.description}</span>
-                    </div>
-                  );
-                })}
-              </div>
+              {suggestions && suggestions.length > 1 &&
+                <div className="autocomplete-dropdown-container">
+                  {suggestions.map(suggestion => {
+                    const className = suggestion.active
+                      ? 'suggestion-item-active'
+                      : 'suggestion-item';
+                    return (
+                      <div
+                        {...getSuggestionItemProps(suggestion, {
+                          className
+                        })}
+                      >
+                        <span>{suggestion.description}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              }
             </React.Fragment>
           )}
         </PlacesAutocomplete>
