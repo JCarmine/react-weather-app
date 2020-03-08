@@ -12,19 +12,19 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
   const handleChange = input => {
     setAddress(input);
     setIsValidAddress(false);
-  }
+  };
 
   const handleSelect = input => {
     setAddress(input);
     setIsValidAddress(true);
-  }
+  };
 
   const handleSubmit = () => {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => fetchWeatherData(latLng))
       .catch(error => console.error('Error', error));
-  }
+  };
 
   return (
     <div className="location-search-form">
@@ -37,7 +37,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
           <div>
             <input
               {...getInputProps({
-                placeholder: 'Search for Town/City',
+                placeholder: 'Search for Town/City/Zip/Place',
                 className: `location-search-input ${isValidAddress ? "valid" : ""}`,
               })}
             />
@@ -68,7 +68,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
       </button>
     </div>
   );
-}
+};
 
 LocationSearchForm.propTypes = {
   fetchWeatherData: PropTypes.func.isRequired

@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
 import WeatherApp from '../components';
-import { getWeatherData } from '../selectors';
+import {
+  getWeatherData,
+  isLoading,
+  hasError
+} from '../selectors';
 import { fetchWeatherData } from '../actions';
 
 const mapStateToProps = state => ({
-  weatherData: getWeatherData(state)
+  weatherData: getWeatherData(state),
+  isLoading: isLoading(state),
+  hasError: hasError(state)
 });
 
 const mapDispatchToProps = dispatch => ({
