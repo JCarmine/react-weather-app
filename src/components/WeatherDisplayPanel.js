@@ -15,17 +15,17 @@ const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
     } else if (weatherData) {
       return (
         <div className="weather-data">
-          <div className="weather-data-name">{weatherData.name}</div>
-          <div className="weather-data-name">{weatherData.weather[0].main}</div>
-          <div className="weather-data-name">{parseInt(weatherData.main.temp)}</div>
+          <div className="weather-data-city">{weatherData.name}</div>
+          <div className="weather-data-contitions">{weatherData.weather[0].main}</div>
+          <div className="weather-data-temp">{parseInt(weatherData.main.temp)}&deg;</div>
           <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="Weather Logo" />
         </div>
       )
     } else {
       return (
         <div className="get-started">
+          <h1 className="app-title">React Weather App</h1>
           <img className="get-started-logo" src={logo} alt="Get Started Logo" />
-          <span>Enter a Town/City/Zip/Place to get started!</span>
         </div>
       );
     }

@@ -3,12 +3,13 @@
 .suggestion-item,
 .suggestion-item-active {
   padding: 2px 7px !important;
+  font-size: 18px;
 }
 
 .location-search-input,
 .location-search-form-button {
   border: none;
-  line-height: 18px;
+  line-height: 17px;
 }
 
 .location-search-form {
@@ -20,6 +21,7 @@
 .location-search-form-input {
   flex-grow: 1;
   position: relative;
+  display: inherit;
 }
 
 .location-search-input {
@@ -53,6 +55,7 @@
 }
 
 .location-search-form-button {
+  padding: 2px 15px;
   color: #ffffff;
   background-color: #58abdb;
 }

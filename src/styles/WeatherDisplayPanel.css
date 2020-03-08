@@ -1,3 +1,25 @@
+.weather-display-panel {
+  padding-top: 95px;
+  text-align: center;
+}
+
+.app-title {
+  margin-top: 0;
+}
+
+.weather-data-city {
+  font-size: 32px;
+}
+
+.weather-data-contitions {
+  font-size: 22px;
+  margin-top: 5px;
+}
+
+.weather-data-temp {
+  font-size: 90px;
+}
+
 .get-started-logo {
-  width: 20px;
+  width: 160px;
 }
