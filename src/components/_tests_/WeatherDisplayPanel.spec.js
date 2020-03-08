@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-// import { createMockWeatherData } from '../../mocks/mockData';
+import { createMockWeatherData } from '../../mocks/mockData';
 
 import WeatherDisplayPanel from '../WeatherDisplayPanel';
 
@@ -8,7 +8,6 @@ describe('<WeatherDisplayPanel />', () => {
   const defaultProps = {
     isLoading: false,
     hasError: false,
-    fetchWeatherData: jest.fn(),
     weatherData: null
   };
 
@@ -20,25 +19,47 @@ describe('<WeatherDisplayPanel />', () => {
   const props = generateProps({});
   const wrapper = shallow(<WeatherDisplayPanel {...props} />);
 
-  describe('when there is no weather data', () => {
+  describe('when there is no weather data, and no error', () => {
     it('renders the get started container', () => {
-      expect(wrapper.find('.get-started')).toHaveLength(1);
+      expect(wrapper.exists('.get-started')).toBeTruthy();
     });
 
-    it('renders the get started container', () => {
-      expect(wrapper.find('.app-title')).toBeTruthy();
+    it('renders the header', () => {
+      expect(wrapper.find('.app-title').text()).toEqual('React Weather App');
     });
 
-    // it('renders the weather display component', () => {
-    //   expect(wrapper.exists('WeatherDisplayPanel')).toBeTruthy();
-    // });
+    it('renders the get started logo', () => {
+      expect(wrapper.exists('.get-started-logo')).toBeTruthy();
+    });
   });
 
-  // it('renders the search component', () => {
-  //   expect(wrapper.exists('LocationSearchForm')).toBeTruthy();
-  // });
-  //
-  // it('renders the weather display component', () => {
-  //   expect(wrapper.exists('WeatherDisplayPanel')).toBeTruthy();
-  // });
+  describe('when there is an error', () => {
+    const props = generateProps({ hasError: true });
+    const wrapper = shallow(<WeatherDisplayPanel {...props} />);
+
+    it('renders the get started container', () => {
+      expect(wrapper.find('.error-message').text()).toEqual('There was a problem with your submission. Please try again.');
+    });
+  });
+
+  describe('when there is weatherData and no error', () => {
+    const props = generateProps({ weatherData: createMockWeatherData() });
+    const wrapper = shallow(<WeatherDisplayPanel {...props} />);
+
+    it('renders the city name', () => {
+      expect(wrapper.find('.weather-data-city').text()).toEqual('Portland');
+    });
+
+    it('renders the conditions', () => {
+      expect(wrapper.find('.weather-data-contitions').text()).toEqual('Clouds');
+    });
+
+    it('renders the temperature', () => {
+      expect(wrapper.find('.weather-data-temp').text()).toContain('44');
+    });
+
+    it('renders the weather icon with a properly formatted URL for the src prop', () => {
+      expect(wrapper.find("img").prop("src")).toEqual('http://openweathermap.org/img/wn/04d@2x.png');
+    });
+  });
 });

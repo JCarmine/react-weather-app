@@ -12,7 +12,7 @@ const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
 
   const renderContent = () => {
     if (hasError) {
-      return <span>There was a problem with your submission. Please try again.</span>
+      return <span className="error-message">There was a problem with your submission. Please try again.</span>
     } else if (weatherData) {
       return (
         <div className="weather-data">
