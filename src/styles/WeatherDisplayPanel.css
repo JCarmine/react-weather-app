@@ -7,6 +7,14 @@
   margin-top: 0;
 }
 
+.get-started-logo {
+  width: 160px;
+}
+
+.loading-indicator {
+  width: 170px;
+}
+
 .weather-data-city {
   font-size: 32px;
 }
@@ -18,8 +26,4 @@
 
 .weather-data-temp {
   font-size: 90px;
-}
-
-.get-started-logo {
-  width: 160px;
 }

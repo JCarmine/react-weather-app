@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import logo from '../images/weather-logo.png';
+import loading from '../images/loading-indicator.gif';
 
 import '../styles/WeatherDisplayPanel.css';
 
 const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
   const renderLoadingIndicator = () => {
-    return <span>Loading...</span>
+    return <img className="loading-indicator" src={loading} alt="" />
   };
 
   const renderContent = () => {
