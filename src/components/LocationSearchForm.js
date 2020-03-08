@@ -9,17 +9,14 @@ import '../styles/LocationSearchForm.css';
 
 const LocationSearchForm = ({ fetchWeatherData }) => {
   const [address, setAddress] = useState('');
-  const [isValidAddress, setIsValidAddress] = useState(false);
 
   const handleChange = input => {
     setAddress(input);
-    setIsValidAddress(false);
   };
 
   const handleSelect = (input, e) => {
     if (e) {
       setAddress(input);
-      setIsValidAddress(true);
       handleSubmit(input);
     }
   };
@@ -45,7 +42,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
               <input
                 {...getInputProps({
                   placeholder: 'Search for Town/City/Zip/Place',
-                  className: `location-search-input ${isValidAddress ? "valid" : ""}`,
+                  className: 'location-search-input',
                 })}
               />
               {suggestions && suggestions.length > 1 &&
