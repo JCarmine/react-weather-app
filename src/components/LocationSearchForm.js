@@ -53,11 +53,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
                       ? 'suggestion-item-active'
                       : 'suggestion-item';
                     return (
-                      <div
-                        {...getSuggestionItemProps(suggestion, {
-                          className
-                        })}
-                      >
+                      <div {...getSuggestionItemProps(suggestion, {className})}>
                         <span>{suggestion.description}</span>
                       </div>
                     );
