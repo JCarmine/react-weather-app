@@ -1,24 +1,21 @@
 .location-search-input,
-.location-search-form-button,
 .suggestion-item,
 .suggestion-item-active {
   padding: 2px 7px !important;
+  font-size: 25px;
 }
 
-.location-search-input,
-.location-search-form-button {
+.location-search-input {
   border: none;
   line-height: 18px;
 }
 
 .location-search-form {
-  display: flex;
   padding: 5px 10px;
   background-color: #327da8;
 }
 
 .location-search-form-input {
-  flex-grow: 1;
   position: relative;
 }
 
@@ -50,14 +47,4 @@
 .suggestion-item-active {
   cursor: pointer;
   background-color: #f0f3f5;
-}
-
-.location-search-form-button {
-  color: #ffffff;
-  background-color: #58abdb;
-}
-
-.location-search-form-button:disabled {
-  color: #f0f3f5;
-  background-color: #d1d3d4;
 }

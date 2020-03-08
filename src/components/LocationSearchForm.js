@@ -19,14 +19,16 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
   const handleSelect = input => {
     setAddress(input);
     setIsValidAddress(true);
-  };
 
-  const handleSubmit = () => {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => fetchWeatherData(latLng))
       .catch(error => console.error('Error', error));
   };
+
+  // const handleSubmit = () => {
+  //
+  // };
 
   return (
     <div className="location-search-form">
@@ -64,13 +66,6 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
           )}
         </PlacesAutocomplete>
       </div>
-      <button
-        className="location-search-form-button"
-        type="button"
-        disabled={!isValidAddress}
-        onClick={handleSubmit}>
-          Get Weather
-      </button>
     </div>
   );
 };
