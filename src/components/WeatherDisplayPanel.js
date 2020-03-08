@@ -11,11 +11,18 @@ const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
     if (hasError) {
       return <span>There was a problem with your submission. Please try again.</span>
     } else if (weatherData) {
-      return <span>{weatherData.name}</span>
+      return (
+        <div className="weather-data">
+          <div className="weather-data-name">{weatherData.name}</div>
+          <div className="weather-data-name">{weatherData.weather[0].main}</div>
+          <div className="weather-data-name">{parseInt(weatherData.main.temp)}</div>
+          <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="Weather Logo" />
+        </div>
+      )
     } else {
       return (
         <div className="get-started">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="App Logo" />
           <span>Enter a Town/City/Zip/Place to get started!</span>
         </div>
       );
