@@ -4,6 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import { FaSearch } from 'react-icons/fa';
 
 import '../styles/LocationSearchForm.css';
 
@@ -31,7 +32,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
   return (
     <div className="location-search-form">
       <div className="location-search-form-input">
-      <span className="search-icon" role="img" aria-label="search icon">&#128269;</span>
+        <FaSearch className="search-icon" />
         <PlacesAutocomplete
           value={address}
           onChange={handleChange}
