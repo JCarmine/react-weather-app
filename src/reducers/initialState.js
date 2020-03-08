@@ -2,8 +2,8 @@ import { fromJS } from 'immutable';
 
 const initialState = fromJS({
   weatherApp: {
-    isLoading: false,
-    hasError: false,
+    isWeatherDataLoading: false,
+    hasWeatherDataLoadingError: false,
     data: null
   }
 });

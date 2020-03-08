@@ -6,8 +6,8 @@ import WeatherApp from '../index';
 
 describe('<WeatherApp />', () => {
   const defaultProps = {
-    isLoading: false,
-    hasError: false,
+    isWeatherDataLoading: false,
+    hasWeatherDataLoadingError: false,
     fetchWeatherData: jest.fn(),
     weatherData: createMockWeatherData()
   };

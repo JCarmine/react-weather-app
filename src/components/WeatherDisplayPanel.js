@@ -5,13 +5,13 @@ import loading from '../images/loading-indicator.gif';
 
 import '../styles/WeatherDisplayPanel.css';
 
-const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
+const WeatherDisplayPanel = ({ weatherData, isWeatherDataLoading, hasWeatherDataLoadingError }) => {
   const renderLoadingIndicator = () => {
     return <img className="loading-indicator" src={loading} alt="" />
   };
 
   const renderContent = () => {
-    if (hasError) {
+    if (hasWeatherDataLoadingError) {
       return <span className="error-message">There was a problem with your submission. Please try again.</span>
     } else if (weatherData) {
       return (
@@ -34,7 +34,7 @@ const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
 
   return (
     <div className="weather-display-panel">
-      {isLoading ?
+      {isWeatherDataLoading ?
         renderLoadingIndicator() :
         renderContent()
       }
@@ -47,8 +47,8 @@ WeatherDisplayPanel.defaultProps = {
 };
 
 WeatherDisplayPanel.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  hasError: PropTypes.bool.isRequired,
+  isWeatherDataLoading: PropTypes.bool.isRequired,
+  hasWeatherDataLoadingError: PropTypes.bool.isRequired,
   weatherData: PropTypes.object
 };
 

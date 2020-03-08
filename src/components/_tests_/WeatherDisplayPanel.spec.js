@@ -6,8 +6,8 @@ import WeatherDisplayPanel from '../WeatherDisplayPanel';
 
 describe('<WeatherDisplayPanel />', () => {
   const defaultProps = {
-    isLoading: false,
-    hasError: false,
+    isWeatherDataLoading: false,
+    hasWeatherDataLoadingError: false,
     weatherData: null
   };
 
@@ -34,7 +34,7 @@ describe('<WeatherDisplayPanel />', () => {
   });
 
   describe('when there is an error', () => {
-    const props = generateProps({ hasError: true });
+    const props = generateProps({ hasWeatherDataLoadingError: true });
     const wrapper = shallow(<WeatherDisplayPanel {...props} />);
 
     it('renders the get started container', () => {

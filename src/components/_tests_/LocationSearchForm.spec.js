@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { createMockWeatherData } from '../../mocks/mockData';
 
 import LocationSearchForm from '../LocationSearchForm';
-import PlacesAutocomplete from 'react-places-autocomplete';
 
 describe('<LocationSearchForm />', () => {
   const defaultProps = {

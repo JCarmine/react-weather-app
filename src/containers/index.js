@@ -2,15 +2,15 @@ import { connect } from 'react-redux';
 import WeatherApp from '../components';
 import {
   getWeatherData,
-  isLoading,
-  hasError
+  isWeatherDataLoading,
+  hasWeatherDataLoadingError
 } from '../selectors';
 import { fetchWeatherData } from '../actions';
 
 const mapStateToProps = state => ({
   weatherData: getWeatherData(state),
-  isLoading: isLoading(state),
-  hasError: hasError(state)
+  isWeatherDataLoading: isWeatherDataLoading(state),
+  hasWeatherDataLoadingError: hasWeatherDataLoadingError(state)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -5,6 +5,6 @@ export const getWeatherData = state => {
   }
 }
 
-export const isLoading = state => state.getIn(['weatherApp', 'isLoading']);
+export const isWeatherDataLoading = state => state.getIn(['weatherApp', 'isWeatherDataLoading']);
 
-export const hasError = state => state.getIn(['weatherApp', 'hasError']);
+export const hasWeatherDataLoadingError = state => state.getIn(['weatherApp', 'hasWeatherDataLoadingError']);
