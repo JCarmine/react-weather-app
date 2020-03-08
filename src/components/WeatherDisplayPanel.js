@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import logo from '../images/weather-logo.png';
 
+import '../styles/WeatherDisplayPanel.css';
+
 const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
   const renderLoadingIndicator = () => {
     return <span>Loading...</span>
@@ -22,7 +24,7 @@ const WeatherDisplayPanel = ({ weatherData, isLoading, hasError }) => {
     } else {
       return (
         <div className="get-started">
-          <img src={logo} alt="App Logo" />
+          <img className="get-started-logo" src={logo} alt="Get Started Logo" />
           <span>Enter a Town/City/Zip/Place to get started!</span>
         </div>
       );

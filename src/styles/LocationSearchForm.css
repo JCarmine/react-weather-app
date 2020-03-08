@@ -1,0 +1,35 @@
+.location-search-form {
+  display: flex;
+  padding: 5px 10px;
+  background-color: #327da8;
+}
+
+.location-search-form-input {
+  flex-grow: 1;
+}
+
+.location-search-input,
+.location-search-form-button {
+  padding: 2px 7px;
+  border: none;
+  line-height: 18px;
+}
+
+.location-search-input {
+  width: 100%;
+  border-right: 1px solid #327da8;
+}
+
+.autocomplete-dropdown-container {
+  display: inline;
+}
+
+.location-search-form-button {
+  color: #ffffff;
+  background-color: #58abdb;
+}
+
+.location-search-form-button:disabled {
+  color: #f0f3f5;
+  background-color: #d1d3d4;
+}

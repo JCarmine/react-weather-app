@@ -5,6 +5,8 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 
+import '../styles/LocationSearchForm.css';
+
 const LocationSearchForm = ({ fetchWeatherData }) => {
   const [address, setAddress] = useState('');
   const [isValidAddress, setIsValidAddress] = useState(false);
@@ -28,39 +30,42 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
 
   return (
     <div className="location-search-form">
-      <PlacesAutocomplete
-        value={address}
-        onChange={handleChange}
-        onSelect={handleSelect}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input
-              {...getInputProps({
-                placeholder: 'Search for Town/City/Zip/Place',
-                className: `location-search-input ${isValidAddress ? "valid" : ""}`,
-              })}
-            />
-            <div className="autocomplete-dropdown-container">
-              {suggestions.map(suggestion => {
-                const className = suggestion.active
-                  ? 'suggestion-item--active'
-                  : 'suggestion-item';
-                return (
-                  <div
-                    {...getSuggestionItemProps(suggestion, {
-                      className
-                    })}
-                  >
-                    <span>{suggestion.description}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </PlacesAutocomplete>
+      <div className="location-search-form-input">
+        <PlacesAutocomplete
+          value={address}
+          onChange={handleChange}
+          onSelect={handleSelect}
+        >
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <React.Fragment>
+              <input
+                {...getInputProps({
+                  placeholder: 'Search for Town/City/Zip/Place',
+                  className: `location-search-input ${isValidAddress ? "valid" : ""}`,
+                })}
+              />
+              <div className="autocomplete-dropdown-container">
+                {suggestions.map(suggestion => {
+                  const className = suggestion.active
+                    ? 'suggestion-item--active'
+                    : 'suggestion-item';
+                  return (
+                    <div
+                      {...getSuggestionItemProps(suggestion, {
+                        className
+                      })}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </React.Fragment>
+          )}
+        </PlacesAutocomplete>
+      </div>
       <button
+        className="location-search-form-button"
         type="button"
         disabled={!isValidAddress}
         onClick={handleSubmit}>

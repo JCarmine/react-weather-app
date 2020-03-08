@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import LocationSearchForm from './LocationSearchForm';
 import WeatherDisplayPanel from './WeatherDisplayPanel';
 
-import '../styles/App.css';
+import '../styles/WeatherApp.css';
 
 const WeatherApp = ({ weatherData, fetchWeatherData, isLoading, hasError }) => {
   return (
     <div className="weather-app">
-      <h1>React Weather App</h1>
       <LocationSearchForm
         fetchWeatherData={fetchWeatherData}
       />
