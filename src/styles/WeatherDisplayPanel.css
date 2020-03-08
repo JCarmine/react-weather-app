@@ -1,6 +1,7 @@
 .weather-display-panel {
-  padding-top: 95px;
+  padding-top: 30%;
   text-align: center;
+  color: #ffffff;
 }
 
 .app-title {

@@ -1,13 +1,11 @@
 .location-search-input,
-.location-search-form-button,
 .suggestion-item,
 .suggestion-item-active {
   padding: 4px 10px !important;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.location-search-input,
-.location-search-form-button {
+.location-search-input {
   border: none;
   line-height: 17px;
 }
@@ -15,7 +13,7 @@
 .location-search-form {
   display: flex;
   padding: 5px 10px;
-  background-color: #327da8;
+  background-color: #040036;
 }
 
 .location-search-form-input {
@@ -27,15 +25,25 @@
 .location-search-input {
   width: 100%;
   border-right: 1px solid #327da8;
+  padding-right: 30px !important;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  transform: translateY(-50%);
+  font-size: 20px;
 }
 
 .autocomplete-dropdown-container {
   position: absolute;
+  top: 30px;
   left: 0;
   right: 0;
   background-color: #ffffff;
-  border: 1px solid #d1d3d4;
-  border-top: none;
+  border-left: 1px solid #d1d3d4;
+  border-right: 1px solid #d1d3d4;
 }
 
 .suggestion-item,
@@ -49,18 +57,11 @@
   cursor: pointer;
 }
 
+.suggestion-item:last-child {
+  border-bottom: 1px solid #d1d3d4;
+}
+
 .suggestion-item-active {
   cursor: pointer;
   background-color: #f0f3f5;
-}
-
-.location-search-form-button {
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #58abdb;
-}
-
-.location-search-form-button:disabled {
-  color: #f0f3f5;
-  background-color: #d1d3d4;
 }
