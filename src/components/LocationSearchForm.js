@@ -32,7 +32,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
   return (
     <div className="location-search-form">
       <div className="location-search-form-input">
-      <span className="search-icon" role="img" aria-label="search icon">&#x1F50E;</span>
+      <span className="search-icon" role="img" aria-label="search icon">&#128269;</span>
         <PlacesAutocomplete
           value={address}
           onChange={handleChange}
