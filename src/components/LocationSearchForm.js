@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -9,6 +9,7 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 import '../styles/LocationSearchForm.css';
 
 const LocationSearchForm = ({ fetchWeatherData }) => {
+  let searchInput = useRef(null);
   const [address, setAddress] = useState('');
 
   const handleChange = input => {
@@ -31,6 +32,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
 
   const clearInput = () => {
     setAddress('');
+    searchInput.current.focus();
   };
 
   return (
@@ -52,6 +54,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
                 {...getInputProps({
                   placeholder: 'Search for Town/City/Zip/Place',
                   className: 'location-search-input',
+                  ref: searchInput
                 })}
               />
               {suggestions && suggestions.length > 1 &&
