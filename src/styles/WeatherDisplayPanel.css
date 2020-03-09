@@ -1,0 +1,30 @@
+.weather-display-panel {
+  padding-top: 30%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.app-title {
+  margin-top: 0;
+}
+
+.get-started-logo {
+  width: 160px;
+}
+
+.loading-indicator {
+  width: 170px;
+}
+
+.weather-data-city {
+  font-size: 34px;
+}
+
+.weather-data-contitions {
+  font-size: 22px;
+  margin-top: 5px;
+}
+
+.weather-data-temp {
+  font-size: 90px;
+}
