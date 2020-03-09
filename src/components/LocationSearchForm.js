@@ -34,6 +34,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
       <div className="location-search-form-input">
         <FaSearch className="search-icon" />
         <PlacesAutocomplete
+          highlightFirstSuggestion
           value={address}
           onChange={handleChange}
           onSelect={handleSelect}
