@@ -1,7 +1,7 @@
 .location-search-input,
 .suggestion-item,
 .suggestion-item-active {
-  padding: 4px 10px !important;
+  padding: 8px 10px !important;
   font-size: 20px;
 }
 
@@ -10,9 +10,8 @@
 }
 
 .location-search-form {
-  display: flex;
   padding: 5px 10px;
-  background-color: #040036;
+  background-color: #080069;
 }
 
 .location-search-form-input {
@@ -27,6 +26,7 @@
   padding-right: 30px !important;
 }
 
+.close-icon,
 .search-icon {
   position: absolute;
   top: 50%;
@@ -35,9 +35,13 @@
   font-size: 20px;
 }
 
+.close-icon {
+  cursor: pointer;
+}
+
 .autocomplete-dropdown-container {
   position: absolute;
-  top: 30px;
+  top: 39px;
   left: 0;
   right: 0;
   background-color: #ffffff;

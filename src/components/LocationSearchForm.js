@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaTimes } from 'react-icons/fa';
 
 import '../styles/LocationSearchForm.css';
 
 const LocationSearchForm = ({ fetchWeatherData }) => {
+  let searchInput = useRef(null);
   const [address, setAddress] = useState('');
 
   const handleChange = input => {
@@ -29,10 +30,24 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
       .catch(error => console.error('Error', error));
   };
 
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 13) {
+      clearInput();
+    }
+  };
+
+  const handleClick = () => {
+    clearInput();
+  };
+
+  const clearInput = () => {
+    setAddress('');
+    searchInput.current.focus();
+  };
+
   return (
     <div className="location-search-form">
       <div className="location-search-form-input">
-        <FaSearch className="search-icon" />
         <PlacesAutocomplete
           highlightFirstSuggestion
           value={address}
@@ -45,6 +60,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
                 {...getInputProps({
                   placeholder: 'Search for Town/City/Zip/Place',
                   className: 'location-search-input',
+                  ref: searchInput
                 })}
               />
               {suggestions && suggestions.length > 1 &&
@@ -64,6 +80,16 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
             </React.Fragment>
           )}
         </PlacesAutocomplete>
+        {address ?
+          <FaTimes
+            className="close-icon"
+            role="button"
+            onKeyDown={handleKeyPress}
+            onClick={handleClick}
+            tabIndex="0"
+          /> :
+          <FaSearch className="search-icon" />
+        }
       </div>
     </div>
   );
