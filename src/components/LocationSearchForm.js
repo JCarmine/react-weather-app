@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaTimes } from 'react-icons/fa';
 
 import '../styles/LocationSearchForm.css';
 
@@ -29,10 +29,17 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
       .catch(error => console.error('Error', error));
   };
 
+  const clearInput = () => {
+    setAddress('');
+  };
+
   return (
     <div className="location-search-form">
       <div className="location-search-form-input">
-        <FaSearch className="search-icon" />
+        {address ?
+          <FaTimes className="close-icon" onClick={clearInput} /> :
+          <FaSearch className="search-icon" />
+        }
         <PlacesAutocomplete
           highlightFirstSuggestion
           value={address}
