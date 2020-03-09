@@ -23,11 +23,17 @@ describe('the reducer for the WeatherApp', () => {
 
   describe('when receiving a FETCH_WEATHER_DATA action', () => {
     const state = fromJS({
+      hasWeatherDataLoadingError: true,
       isWeatherDataLoading: false
     });
     const action = {
       type: types.FETCH_WEATHER_DATA,
     };
+
+    it('indicates that there is no data loading error', () => {
+      const nextState = reducer(state, action);
+      expect(nextState.getIn(['weatherApp', 'hasWeatherDataLoadingError'])).toBeFalsy();
+    });
 
     it('indicates that the weather data is loading', () => {
       const nextState = reducer(state, action);

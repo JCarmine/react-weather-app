@@ -6,6 +6,7 @@ const reducer = (state = initialState.get('weatherApp'), action) => {
   switch (action.type) {
     case types.FETCH_WEATHER_DATA:
       return state
+        .setIn(['weatherApp', 'hasWeatherDataLoadingError'], false)
         .setIn(['weatherApp', 'isWeatherDataLoading'], true);
     case types.FETCH_WEATHER_DATA_SUCCESS:
       return state
