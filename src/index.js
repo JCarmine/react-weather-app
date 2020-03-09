@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import WeatherApp from './containers';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker/serviceWorker';
 
 import './styles/index.css';
 
