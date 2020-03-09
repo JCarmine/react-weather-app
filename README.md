@@ -1,4 +1,18 @@
+# React Weather App
+React Weather App is a mobile friendly weather app capable of displaying weather information from around the world. It uses Google's Maps Javascript, Places, and Geocoding APIs to generate accurate location information. In addition, it uses the openweathermap API to get current weather conditions.
+
+It is built using:
+* [react-places-autocomplete](https://github.com/hibiken/react-places-autocomplete#readme)
+* [react](https://github.com/facebook/react)
+* [redux](https://github.com/reduxjs/redux)
+* [redux-thunk](https://github.com/reduxjs/redux-thunk)
+* [redux-api-middleware](https://github.com/agraboso/redux-api-middleware)
+* [immutable.js](https://github.com/immutable-js/immutable-js)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+To get started:
+### `npm install`
 
 ## Available Scripts
 

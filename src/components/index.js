@@ -5,7 +5,12 @@ import WeatherDisplayPanel from './WeatherDisplayPanel';
 
 import '../styles/WeatherApp.css';
 
-const WeatherApp = ({ weatherData, fetchWeatherData, isWeatherDataLoading, hasWeatherDataLoadingError }) => {
+const WeatherApp = ({
+  weatherData,
+  fetchWeatherData,
+  isWeatherDataLoading,
+  hasWeatherDataLoadingError
+}) => {
   return (
     <div className="weather-app">
       <LocationSearchForm
