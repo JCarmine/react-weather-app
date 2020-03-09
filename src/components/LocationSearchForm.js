@@ -30,6 +30,16 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
       .catch(error => console.error('Error', error));
   };
 
+  const handleKeyPress = (e) => {
+    if (e.keyCode === 13) {
+      clearInput();
+    }
+  };
+
+  const handleClick = () => {
+    clearInput();
+  };
+
   const clearInput = () => {
     setAddress('');
     searchInput.current.focus();
@@ -38,10 +48,6 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
   return (
     <div className="location-search-form">
       <div className="location-search-form-input">
-        {address ?
-          <FaTimes className="close-icon" onClick={clearInput} /> :
-          <FaSearch className="search-icon" />
-        }
         <PlacesAutocomplete
           highlightFirstSuggestion
           value={address}
@@ -74,6 +80,16 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
             </React.Fragment>
           )}
         </PlacesAutocomplete>
+        {address ?
+          <FaTimes
+            className="close-icon"
+            role="button"
+            onKeyDown={handleKeyPress}
+            onClick={handleClick}
+            tabIndex="0"
+          /> :
+          <FaSearch className="search-icon" />
+        }
       </div>
     </div>
   );
