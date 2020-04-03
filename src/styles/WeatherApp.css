@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 480px;
   min-width: 320px;
-  height: 100vh;
+  height: 100%;
   max-height: 768px;
   background: #74ebd5;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to top, #74ebd5, #ACB6E5);  /* Chrome 10-25, Safari 5.1-6 */
