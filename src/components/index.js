@@ -25,7 +25,7 @@ const WeatherApp = ({
   );
 };
 
-WeatherDisplayPanel.defaultProps = {
+WeatherApp.defaultProps = {
   weatherData: null
 };
 
