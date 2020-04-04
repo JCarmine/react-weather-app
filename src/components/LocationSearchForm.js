@@ -10,6 +10,7 @@ import '../styles/LocationSearchForm.css';
 
 const LocationSearchForm = ({ fetchWeatherData }) => {
   let searchInput = useRef(null);
+  let clearIcon = useRef();
   const [address, setAddress] = useState('');
 
   const handleChange = input => {
@@ -19,6 +20,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
   const handleSelect = (input, e) => {
     if (e) {
       setAddress(input);
+      clearIcon.current.focus()
       handleSubmit(input);
     }
   };
@@ -54,7 +56,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
           onChange={handleChange}
           onSelect={handleSelect}
         >
-          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          {({ getInputProps, suggestions, getSuggestionItemProps }) => (
             <React.Fragment>
               <input
                 {...getInputProps({
@@ -80,16 +82,18 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
             </React.Fragment>
           )}
         </PlacesAutocomplete>
-        {address ?
-          <FaTimes
-            className="close-icon"
-            role="button"
-            onKeyDown={handleKeyPress}
-            onClick={handleClick}
-            tabIndex="0"
-          /> :
-          <FaSearch className="search-icon" />
-        }
+        
+          {address ?
+            <button
+              className="close-button"
+              ref={clearIcon}
+              onKeyDown={handleKeyPress}
+              onClick={handleClick}
+            >
+              <FaTimes className="close-icon" />
+            </button> :
+            <FaSearch className="search-icon" />
+          }
       </div>
     </div>
   );
