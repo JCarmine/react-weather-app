@@ -10,7 +10,7 @@ import '../styles/LocationSearchForm.css';
 
 const LocationSearchForm = ({ fetchWeatherData }) => {
   let searchInput = useRef(null);
-  let clearIcon = useRef();
+  let clearIcon = useRef(null);
   const [address, setAddress] = useState('');
 
   const handleChange = input => {
@@ -82,18 +82,17 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
             </React.Fragment>
           )}
         </PlacesAutocomplete>
-        
-          {address ?
-            <button
-              className="close-button"
-              ref={clearIcon}
-              onKeyDown={handleKeyPress}
-              onClick={handleClick}
-            >
-              <FaTimes className="close-icon" />
-            </button> :
-            <FaSearch className="search-icon" />
-          }
+        {address ?
+          <button
+            className="close-button"
+            ref={clearIcon}
+            onKeyDown={handleKeyPress}
+            onClick={handleClick}
+          >
+            <FaTimes className="close-icon" />
+          </button> :
+          <FaSearch className="search-icon" />
+        }
       </div>
     </div>
   );
