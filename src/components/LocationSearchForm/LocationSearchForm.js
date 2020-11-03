@@ -1,17 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 
 import { fetchWeatherData } from '../../actions';
 
-import './LocationSearchForm.scss';
+import LocationSearchInput from './LocationSearchInput/LocationSearchInput'
+
+import styles from './LocationSearchForm.module.scss';
 
 const LocationSearchForm = () => {
   const dispatch = useDispatch();
   let searchInput = useRef(null);
   let clearIcon = useRef(null);
   const [address, setAddress] = useState('');
+  console.log(address);
 
   const handleChange = input => {
     setAddress(input);
@@ -48,50 +51,24 @@ const LocationSearchForm = () => {
   };
 
   return (
-    <div className="location-search-form">
-      <div className="location-search-form-input">
-        <PlacesAutocomplete
-          highlightFirstSuggestion
+    <div className={styles['location-search-form']}>
+      <div className={styles['location-search-form-input']}>
+        <LocationSearchInput
           value={address}
           onChange={handleChange}
           onSelect={handleSelect}
-        >
-          {({ getInputProps, suggestions, getSuggestionItemProps }) => (
-            <>
-              <input
-                {...getInputProps({
-                  placeholder: 'Search for Town/City/Zip/Place',
-                  className: 'location-search-input',
-                  ref: searchInput
-                })}
-              />
-              {suggestions && suggestions.length > 1 &&
-                <div className="autocomplete-dropdown-container">
-                  {suggestions.map(suggestion => {
-                    const className = suggestion.active
-                      ? 'suggestion-item-active'
-                      : 'suggestion-item';
-                    return (
-                      <div {...getSuggestionItemProps(suggestion, {className})}>
-                        <span>{suggestion.description}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              }
-            </>
-          )}
-        </PlacesAutocomplete>
+          searchInput={searchInput}
+        />
         {address ?
           <button
-            className="close-button"
+            className={styles['close-button']}
             ref={clearIcon}
             onKeyDown={handleKeyPress}
             onClick={handleClick}
           >
-            <FaTimes className="close-icon" />
+            <FaTimes className={styles['close-icon']} />
           </button> :
-          <FaSearch className="search-icon" />
+          <FaSearch className={styles['search-icon']} />
         }
       </div>
     </div>

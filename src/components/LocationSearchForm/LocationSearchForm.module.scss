@@ -1,0 +1,30 @@
+.location-search-form {
+  padding: 5px 10px;
+  background-color: #080069;
+
+  .location-search-form-input {
+    flex-grow: 1;
+    position: relative;
+    display: inherit;
+  }
+
+  .close-button,
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    font-size: 20px;
+  }
+
+  .close-button {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .close-icon {
+    display: block;
+  }
+}
