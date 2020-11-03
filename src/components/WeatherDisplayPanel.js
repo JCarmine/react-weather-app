@@ -1,17 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+
+import { getWeatherData, isWeatherDataLoading, hasWeatherDataLoadingError } from '../selectors';
+
 import logo from '../images/weather-logo.png';
 import loading from '../images/loading-indicator.gif';
 
 import '../styles/WeatherDisplayPanel.css';
 
-const WeatherDisplayPanel = ({ weatherData, isWeatherDataLoading, hasWeatherDataLoadingError }) => {
+const WeatherDisplayPanel = () => {
+  const weatherData = useSelector(state => getWeatherData(state));
+  const weatherDataIsLoading = useSelector(state => isWeatherDataLoading(state));
+  const weatherDataLoadingError = useSelector(state => hasWeatherDataLoadingError(state));
+
   const renderLoadingIndicator = () => {
     return <img className="loading-indicator" src={loading} alt="" />
   };
 
   const renderContent = () => {
-    if (hasWeatherDataLoadingError) {
+    if (weatherDataLoadingError) {
       return <span className="error-message">There was a problem with your submission. Please try again.</span>
     } else if (weatherData) {
       return (
@@ -34,22 +41,12 @@ const WeatherDisplayPanel = ({ weatherData, isWeatherDataLoading, hasWeatherData
 
   return (
     <div className="weather-display-panel">
-      {isWeatherDataLoading ?
+      {weatherDataIsLoading ?
         renderLoadingIndicator() :
         renderContent()
       }
     </div>
   );
-};
-
-WeatherDisplayPanel.defaultProps = {
-  weatherData: null
-};
-
-WeatherDisplayPanel.propTypes = {
-  isWeatherDataLoading: PropTypes.bool.isRequired,
-  hasWeatherDataLoadingError: PropTypes.bool.isRequired,
-  weatherData: PropTypes.object
 };
 
 export default WeatherDisplayPanel;

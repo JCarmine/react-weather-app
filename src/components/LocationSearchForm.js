@@ -1,15 +1,14 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { FaSearch, FaTimes } from 'react-icons/fa';
+
+import { fetchWeatherData } from '../actions';
 
 import '../styles/LocationSearchForm.css';
 
-const LocationSearchForm = ({ fetchWeatherData }) => {
+const LocationSearchForm = () => {
   const dispatch = useDispatch();
   let searchInput = useRef(null);
   let clearIcon = useRef(null);
