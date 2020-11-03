@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LocationSearchForm from './LocationSearchForm';
-import WeatherDisplayPanel from './WeatherDisplayPanel';
+import LocationSearchForm from '../components/LocationSearchForm';
+import WeatherDisplayPanel from '../components/WeatherDisplayPanel';
 
 import '../styles/WeatherApp.css';
 

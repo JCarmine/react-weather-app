@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import WeatherApp from '../components';
+import WeatherApp from '../views';
 import {
   getWeatherData,
   isWeatherDataLoading,
