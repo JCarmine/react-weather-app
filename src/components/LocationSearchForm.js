@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -9,6 +10,7 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 import '../styles/LocationSearchForm.css';
 
 const LocationSearchForm = ({ fetchWeatherData }) => {
+  const dispatch = useDispatch();
   let searchInput = useRef(null);
   let clearIcon = useRef(null);
   const [address, setAddress] = useState('');
@@ -28,7 +30,7 @@ const LocationSearchForm = ({ fetchWeatherData }) => {
   const handleSubmit = (input) => {
     geocodeByAddress(input)
       .then(results => getLatLng(results[0]))
-      .then(latLng => fetchWeatherData(latLng))
+      .then(latLng => dispatch(fetchWeatherData(latLng)))
       .catch(error => console.error('Error', error));
   };
 
