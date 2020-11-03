@@ -14,7 +14,7 @@ const WeatherDisplayPanel = () => {
   const weatherDataLoadingError = useSelector(state => hasWeatherDataLoadingError(state));
 
   const renderLoadingIndicator = () => {
-    return <img className="loading-indicator" src={loading} alt="" />
+    return <img className={styles['loading-indicator']} src={loading} alt="" />
   };
 
   const renderContent = () => {

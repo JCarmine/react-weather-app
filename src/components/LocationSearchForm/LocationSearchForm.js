@@ -14,7 +14,6 @@ const LocationSearchForm = () => {
   let searchInput = useRef(null);
   let clearIcon = useRef(null);
   const [address, setAddress] = useState('');
-  console.log(address);
 
   const handleChange = input => {
     setAddress(input);
