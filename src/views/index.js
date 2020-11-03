@@ -1,13 +1,13 @@
 import React from 'react';
 
-import LocationSearchForm from '../components/LocationSearchForm';
-import WeatherDisplayPanel from '../components/WeatherDisplayPanel';
+import LocationSearchForm from '../components/LocationSearchForm/LocationSearchForm';
+import WeatherDisplayPanel from '../components/WeatherDisplayPanel/WeatherDisplayPanel';
 
-import '../styles/WeatherApp.css';
+import styles from './WeatherApp.module.scss';
 
 const WeatherApp = () => {
   return (
-    <div className="weather-app">
+    <div className={styles['weather-app']}>
       <LocationSearchForm />
       <WeatherDisplayPanel />
     </div>

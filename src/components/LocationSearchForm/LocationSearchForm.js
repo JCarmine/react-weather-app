@@ -1,12 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 
-import { fetchWeatherData } from '../actions';
+import { fetchWeatherData } from '../../actions';
 
-import '../styles/LocationSearchForm.css';
+import './LocationSearchForm.scss';
 
 const LocationSearchForm = () => {
   const dispatch = useDispatch();
@@ -58,7 +57,7 @@ const LocationSearchForm = () => {
           onSelect={handleSelect}
         >
           {({ getInputProps, suggestions, getSuggestionItemProps }) => (
-            <React.Fragment>
+            <>
               <input
                 {...getInputProps({
                   placeholder: 'Search for Town/City/Zip/Place',
@@ -80,7 +79,7 @@ const LocationSearchForm = () => {
                   })}
                 </div>
               }
-            </React.Fragment>
+            </>
           )}
         </PlacesAutocomplete>
         {address ?
@@ -97,10 +96,6 @@ const LocationSearchForm = () => {
       </div>
     </div>
   );
-};
-
-LocationSearchForm.propTypes = {
-  fetchWeatherData: PropTypes.func.isRequired
 };
 
 export default LocationSearchForm;
