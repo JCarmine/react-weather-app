@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
-import WeatherApp from './views';
 import * as serviceWorker from './serviceWorker/serviceWorker';
 
-import './styles/index.css';
+import LocationSearchForm from './components/LocationSearchForm/LocationSearchForm';
+import WeatherDisplayPanel from './components/WeatherDisplayPanel/WeatherDisplayPanel';
+
+import './index.scss';
 
 ReactDOM.render(
   <Provider store={store}>
-    <WeatherApp />
+     <div className='weather-app'>
+      <LocationSearchForm />
+      <WeatherDisplayPanel />
+    </div>
   </Provider>,
   document.getElementById('root')
 );
