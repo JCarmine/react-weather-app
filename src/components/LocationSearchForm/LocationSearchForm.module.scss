@@ -1,5 +1,4 @@
 .location-search-form {
-  padding: 5px 10px;
   background-color: #080069;
 
   .location-search-form-input {
@@ -12,7 +11,7 @@
   .search-icon {
     position: absolute;
     top: 50%;
-    right: 5px;
+    right: 10px;
     transform: translateY(-50%);
     font-size: 20px;
   }
@@ -26,5 +25,11 @@
 
   .close-icon {
     display: block;
+  }
+}
+
+@media (min-width: 1025px) {
+  .location-search-form {
+    padding: 5px 10px;
   }
 }
